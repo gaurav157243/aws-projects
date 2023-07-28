@@ -77,7 +77,8 @@ echo "$PUBLIC_IPS"
 echo "Terminating EC2 instances..."
 for ip in $PUBLIC_IPS; do
   instance_id=$(aws ec2 describe-instances --filters "Name=ip-address,Values=$ip" --query "Reservations[].Instances[].InstanceId" --output text --region "$AWS_REGION")
-  aws ec2 terminate-instances --instance-ids "$instance_id" --region "$AWS_REGION"
+  echo "Terminating instance with ip: $ip
+  aws ec2 terminate-instances --instance-ids "$instance_id" --region "$AWS_REGION" >/dev/null 2> /dev/null
 done
 
 echo "EC2 instances terminated successfully."
