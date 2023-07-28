@@ -58,7 +58,7 @@ do
     --image-id "$AMI_ID" \
     --instance-type "$INSTANCE_TYPE" \
     --count 1 \
-    --region "$AWS_REGION"
+    --region "$AWS_REGION" >/dev/null 2>/dev/null
 done
 
 
