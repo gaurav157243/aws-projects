@@ -34,12 +34,6 @@ if [[ -z "$NUM_INSTANCES" ]]; then
   exit 1
 fi
 
-# Validate the input for a positive integer
-if ! [[ "$NUM_INSTANCES" =~ ^[1-9][0-9]{0,1}$ ]]; then
-  echo "Error: Invalid input. Please enter a valid positive integer (1-100)."
-  exit 1
-fi
-
 # Check if NUM_INSTANCES exceeds 100
 if [[ "$NUM_INSTANCES" -gt 100 ]]; then
   echo "Error: Number of instances should not exceed 100."
@@ -57,7 +51,7 @@ INSTANCE_TYPE="t2.micro"
 
 # Create EC2 instances
 echo "Creating $NUM_INSTANCES EC2 instances..."
-for i in `seq 1 $INSTANCE_TYPE`
+for i in `seq 1 $NUM_INSTANCES`
 do
   echo "creating instance# $i"
   aws ec2 run-instances \
