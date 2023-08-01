@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS Project with API Gateway, Lambda, and DynamoDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>AWS Project with API Gateway, Lambda, and DynamoDB</h1>
+    <form onsubmit="sendRequest(event)">
+        <label for="api-url">API Gateway URL:</label>
+        <input type="text" id="api-url" name="api-url" required>
+
+        <label for="user-id">User ID:</label>
+        <input type="text" id="user-id" name="user-id" required>
+
+        <label for="user-name">User Name:</label>
+        <input type="text" id="user-name" name="user-name" required>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function sendRequest(event) {
+            event.preventDefault();
+
+            const apiUrl = document.getElementById('api-url').value;
+            const userId = document.getElementById('user-id').value;
+            const userName = document.getElementById('user-name').value;
+            const email = document.getElementById('email').value;
+
+            const requestBody = {
+                "UserId": userId,
+                "UserName": userName,
+                "Email": email
+            };
+
+            fetch(apiUrl, {
+                method: 'POST',
+                body: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'application/json'
+                    //'Origin': window.location.origin
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Request sent successfully!\nResponse: " + JSON.stringify(data));
+            })
+            .catch(error => {
+                alert("Error occurred while sending the request:\n" + error);
+            });
+        }
+    </script>
+</body>
+</html>
