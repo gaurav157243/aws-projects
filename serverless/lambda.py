@@ -46,10 +46,6 @@ def lambda_handler(event, context):
         ExpressionAttributeValues={':name': new_user_name}
     )
 
-    # Example: Delete data from DynamoDB
-    # user_id_to_delete = '123'
-    # table.delete_item(Key={'UserId': user_id_to_delete})
-
     return {
         'statusCode': 200,
         "headers": {
