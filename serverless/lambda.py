@@ -5,8 +5,8 @@ import json
 def lambda_handler(event, context):
         
     dynamodb = boto3.resource('dynamodb')
-    table_name = os.environ.get('TABLE')
-    table = dynamodb.Table(table_name)
+    #table_name = os.environ.get('TABLE')
+    table = dynamodb.Table('user-table')
     
 
     # Parse the data sent in the request payload
