@@ -31,21 +31,6 @@ def lambda_handler(event, context):
     
     table.put_item(Item=data_to_insert)
 
-    # Example: Read data from DynamoDB
-    user_id_to_read = '1'
-    response = table.get_item(Key={'UserId': user_id_to_read})
-    item = response.get('Item', {})
-    print("Read item:", item)
-
-    # Example: Update data in DynamoDB
-    user_id_to_update = '1'
-    new_user_name = 'Mahendra Dhoni'
-    table.update_item(
-        Key={'UserId': user_id_to_update},
-        UpdateExpression='SET UserName = :name',
-        ExpressionAttributeValues={':name': new_user_name}
-    )
-
     return {
         'statusCode': 200,
         "headers": {
