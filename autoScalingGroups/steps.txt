@@ -1,0 +1,10 @@
+	• First create a launch template. In the LT, select amazon AMI, use the ec2 key pair, allow all traffic and enable detailed monitoring.
+	• Create a ASG with the launch template and once created, set the dynamic policy for CPU utilization. 
+	• SSH to the ec2 machine and install the stress and run the stress command to increase load.
+	
+sudo yum install stress -y
+stress --cpu 2 
+
+	• Check the CPU utilization of the machine and wait for 10 mins or so. 
+	• Check the Auto scaling Activity tab and you will see that a new instance got created.
+Don’t terminate the EC2 instances, but acutally go and delete the ASG to terminate the instances.
