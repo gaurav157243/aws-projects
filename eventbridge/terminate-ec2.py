@@ -8,7 +8,6 @@ def lambda_handler(event, context):
     instance_id = event['detail']['instance-id']
     print("instance id: " + instance_id)
 
-    if event['detail']['state'] == "pending":
-        ec2_client = boto3.client('ec2')
-        print(f"Terminating instance with id: {instance_id}")
-        ec2_client.terminate_instances(InstanceIds=[instance_id])
+    ec2_client = boto3.client('ec2')
+    print(f"Terminating instance with id: {instance_id}")
+    ec2_client.terminate_instances(InstanceIds=[instance_id])
