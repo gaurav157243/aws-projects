@@ -19,21 +19,42 @@ Steps:
             "Action": [
                 "SNS:Publish"
             ],
-            "Resource": "SNS-topic-ARN",
+            "Resource": "arn:aws:sns:us-east-1:665178635794:s3eventtopic",
             "Condition": {
                 "ArnLike": {
-                    "aws:SourceArn": "arn:aws:s3:*:*:bucket-name"
+                    "aws:SourceArn": "arn:aws:s3:::test12345677dfsfd"
                 },
                 "StringEquals": {
-                    "aws:SourceAccount": "bucket-owner-account-id"
+                    "aws:SourceAccount": "665178635794"
                 }
             }
         }
     ]
 }                  
 
-3. Create a SQS queue
+3. Create a SQS queue and edit the access policy and modfiy the topic arn and the queue arn
 
-4. Upload a new file in a s3 bucket and check that there is a new message in the sqs queue
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "sns.amazonaws.com"
+      },
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:us-east-1:665178635794:s3testqueue",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": "arn:aws:sns:us-east-1:665178635794:s3eventtopic"
+        }
+      }
+    }
+  ]
+}
+
+4. Add a subcription between the topic and the sqs queue.
+
+
+5. Upload a new file in a s3 bucket and check that there is a new message in the sqs queue
 
 
