@@ -1,11 +1,11 @@
-sudo dnf update
-sudo dnf install -y postgresql15.x86_64 postgresql15-server
-sudo postgresql-setup --initdb
-sudo systemctl start postgresql
-sudo systemctl enable postgresql
-sudo systemctl status postgresql
+sudo dnf update  
+sudo dnf install -y postgresql15.x86_64 postgresql15-server  
+sudo postgresql-setup --initdb  
+sudo systemctl start postgresql  
+sudo systemctl enable postgresql  
+sudo systemctl status postgresql  
 
-Normally the postgres database is not listenin for requests from outside, to enable that:
+Normally the postgres database is not listenin for requests from outside, to enable that:  
 
 # take a backup of the below file
 cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.bak
