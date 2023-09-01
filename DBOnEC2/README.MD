@@ -1,5 +1,5 @@
 sudo dnf update
-sudo dnf install postgresql15.x86_64 postgresql15-server
+sudo dnf install -y postgresql15.x86_64 postgresql15-server
 sudo postgresql-setup --initdb
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
@@ -11,22 +11,19 @@ Normally the postgres database is not listenin for requests from outside, to ena
 cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.bak
 
 # modify the file to accept connections from anywhere.
-sudo nano /var/lib/pgsql/data/postgresql.conf
+sudo vi /var/lib/pgsql/data/postgresql.conf
 
 # change the following in the above file
 listen_addresses = '*'  
 
-# restart the database
-sudo systemctl start postgresql
-
-# now change the password of the 
+# now change the password of the postgres user 
 sudo passwd postgres
-#Login using Postgres system account-
 
+#Login using Postgres system account-
 su - postgres
 
-#Now, change the Admin database password-
-psql -c "ALTER USER postgres WITH PASSWORD 'your-password';"
+#Now, change the database postgres password
+psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 
 #modify the following file to allow remote connections
 sudo vi /var/lib/pgsql/data/pg_hba.conf
@@ -35,3 +32,5 @@ sudo vi /var/lib/pgsql/data/pg_hba.conf
 #host    all             all             127.0.0.1/32            ident
 host    all             all             0.0.0.0/0           md5 
 
+# restart the database
+sudo systemctl restart postgresql
