@@ -1,3 +1,5 @@
+
+# run the following command to install postgres database
 sudo dnf update  
 sudo dnf install -y postgresql15.x86_64 postgresql15-server  
 sudo postgresql-setup --initdb  
@@ -19,16 +21,15 @@ listen_addresses = '*'
 # now change the password of the postgres user 
 sudo passwd postgres
 
-#Login using Postgres system account-
+# Login using Postgres system account-
 su - postgres
 
-#Now, change the database postgres password
+# Now, change the database postgres password
 psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 
-#modify the following file to allow remote connections
+# modify the following file to allow remote connections
 sudo vi /var/lib/pgsql/data/pg_hba.conf
 
-# IPv4 local connections:
 #host    all             all             127.0.0.1/32            ident
 host    all             all             0.0.0.0/0           md5 
 
