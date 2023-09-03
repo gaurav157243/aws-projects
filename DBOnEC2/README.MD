@@ -14,8 +14,8 @@ cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.bak
 
 # modify the file to accept connections from anywhere.
 sudo vi /var/lib/pgsql/data/postgresql.conf
-
 # change the following in the above file
+# press /listen to search for the "listen" work
 listen_addresses = '*'  
 
 # now change the password of the postgres user 
