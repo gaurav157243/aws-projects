@@ -10,7 +10,7 @@ sudo systemctl status postgresql
 Normally the postgres database is not listenin for requests from outside, to enable that:  
 
 # take a backup of the below file
-cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.bak
+sudo cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.bak
 
 # modify the file to accept connections from anywhere.
 sudo vi /var/lib/pgsql/data/postgresql.conf
