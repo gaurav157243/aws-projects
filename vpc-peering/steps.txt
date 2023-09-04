@@ -1,0 +1,15 @@
+* create a VPC with 1 public and 1 private subnet using a CIDR range of 10.0.1.0/24
+
+* create another VPC with only 1 private subnet using a CIDR range of 10.0.2.0/24
+
+* create a VPC peering connection and accept the connection.
+
+* create first ec2 instance in first vpc in public subnet 
+
+* create second ec2 instance in secondd vpc in private subnet.
+
+* ssh into the public ec2 instance, copy the .pem file and try ssh into the private instance using ssh -i ec2key.pem ec2-user@<private instance ip address>
+
+* now modify the route table to first vpc's public subnet and add route for the second vpc CIDR block with target as peering connection
+
+* now modify the route table to first vpc's public subnet and add route for the second vpc CIDR block with target as peering connection
