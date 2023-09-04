@@ -29,6 +29,9 @@ su - postgres
 # Now, change the database postgres password
 psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 
+# exit from this user
+exit
+
 # modify the following file to allow remote connections
 sudo vi /var/lib/pgsql/data/pg_hba.conf
 
