@@ -16,6 +16,8 @@ sudo cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.
 sudo vi /var/lib/pgsql/data/postgresql.conf
 # change the following in the above file
 # press /listen to search for the "listen" work
+# press x to delete a character in vi; you will need to press x muliptle times
+# press i to start inserting characters
 listen_addresses = '*'  
 
 # now change the password of the postgres user 
@@ -30,6 +32,8 @@ psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 # modify the following file to allow remote connections
 sudo vi /var/lib/pgsql/data/pg_hba.conf
 
+# press x  to delete a single character
+# press i to start inserting characters
 #host    all             all             127.0.0.1/32            ident
 host    all             all             0.0.0.0/0           md5 
 
