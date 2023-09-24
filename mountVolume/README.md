@@ -1,3 +1,5 @@
+create a ec2 instance and attach a 1 GB EBS volume, then perform the following steps
+
 - sudo lsblk
 - sudo file -s /dev/xvdf <br>
 /dev/xvdf: data  (this means that there is no filesystem on the device)
