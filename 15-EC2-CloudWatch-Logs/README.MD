@@ -1,11 +1,20 @@
 * Create a new IAM role, select EC2 Service and this policy  - CloudWatchAgentServerPolicy
 
 * Create a EC2 instance, allow ssh port and attach the above IAM role to the instance.
- 
+
+* Install java
+sudo yum -y install java-1.8.0
+
+* Download the spring application jar file
+sudo wget https://raw.githubusercontent.com/gaurav157243/aws-project/master/springboot-backend/springboot-backend.jar
+
+* Start the application in background and redirect the output to a file
+sudo nohup java -jar springboot-backend.jar > /tmp/myapp.log 2> /tmp/myapp.log &
+
 * Install the cloudwatch agent using the following command:
 sudo yum install amazon-cloudwatch-agent
 
-* Configure the cloudwatch agent using the following command. It will return the config file name.
+* Configure the cloudwatch agent using the following command. Specify the location of the myapp.log (/tmp/myapp.log) file during configuration.
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 
 * Starting the cloudwatch agent; use the config file returned from the above command:
@@ -13,3 +22,5 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 
 * Check status:
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
+
+* Check Cloudwatch -> Log groups and search for myapp.log and you will see your applications log.
