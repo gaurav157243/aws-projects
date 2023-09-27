@@ -1,3 +1,5 @@
+## Configure EC2 to send application logs to Cloudwatch log groups
+
 * Create a new IAM role, select EC2 Service and this policy  - CloudWatchAgentServerPolicy
 
 * Create a EC2 instance, allow ssh port and attach the above IAM role to the instance.
