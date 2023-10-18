@@ -10,7 +10,7 @@
   * sudo docker run -p 80:80 -d webapp                          # run the docker image
     
   Test the applciaton using the below command 
-  * curl -X POST -d '{ "firstName" : "Sachin" , "Tendulkar" : "Agrawal", "emailId" : "st@gmail.com" }' http://localhost:80/api/v1/employees -H"Content-Type:application/json"
+  * curl -X POST -d '{ "firstName" : "Sachin" , "lastName" : "Tendulkar", "emailId" : "st@gmail.com" }' http://localhost:80/api/v1/employees -H"Content-Type:application/json"
  
 * Create a AWS ECR repository using the AWS UI. This repository is used for sharing or downloading the docker image.
   
