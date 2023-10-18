@@ -30,6 +30,10 @@
   aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 665178635794.dkr.ecr.us-east-1.amazonaws.com </br>
   sudo docker run --publish 80:80 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
 
+* For testing, make a GET api call from the browser to verify that we are getting a response </br>
+http://<ec2-ip>/api/v1/employees
+  
+
 
 
   
