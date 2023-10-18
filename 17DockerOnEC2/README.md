@@ -17,8 +17,8 @@
 * Now, lets push the image to the newly created ECR repository
 
   aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 665178635794.dkr.ecr.us-east-1.amazonaws.com </br>
-  docker tag webapp:latest 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
-  docker push 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
+  sudo docker tag webapp:latest 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
+  sudo docker push 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
 
 
   
