@@ -20,5 +20,16 @@
   sudo docker tag webapp:latest 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
   sudo docker push 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
 
+* Now, lets run this docker image on an EC2 instance
+  * First, we will need to create a IAM role with AmazonEC2ContainerRegistryFullAccess permissions
+  * Then run the following commands to install docker and run the container
+  sudo dnf install -y docker </br>
+  sudo systemctl start docker  </br>
+  sudo systemctl enable docker </br>
+  sudo systemctl status docker </br>
+  aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 665178635794.dkr.ecr.us-east-1.amazonaws.com </br>
+  sudo docker run --publish 80:80 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
+
+
 
   
