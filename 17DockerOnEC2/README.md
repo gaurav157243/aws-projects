@@ -9,7 +9,7 @@
   * sudo docker build -t webapp .                               # create a docker image for the spring boot application
   * sudo docker run -p 80:80 -d webapp                          # run the docker image
     
-  Test the applciaton using the below command 
+  Test the application using the curl command to make REST api call
   * curl -X POST -d '{ "firstName" : "Sachin" , "lastName" : "Tendulkar", "emailId" : "st@gmail.com" }' http://localhost:80/api/v1/employees -H"Content-Type:application/json"
  
 * Create a AWS ECR repository using the AWS UI. This repository is used for sharing or downloading the docker image.
