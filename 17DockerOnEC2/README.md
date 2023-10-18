@@ -22,7 +22,7 @@
 
 * Now, lets run this docker image on an EC2 instance
   * First, we will need to create a IAM role with AmazonEC2ContainerRegistryFullAccess permissions
-  * Then run the following commands to install docker and run the container
+  * Then run the following commands to install docker and run the container </br>
   sudo dnf install -y docker </br>
   sudo systemctl start docker  </br>
   sudo systemctl enable docker </br>
