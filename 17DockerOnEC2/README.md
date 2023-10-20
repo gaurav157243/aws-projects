@@ -26,7 +26,7 @@
   sudo docker run --publish 80:80 665178635794.dkr.ecr.us-east-1.amazonaws.com/webapp:latest </br>
 
 * For testing, make a GET api call from the browser to verify that we are getting a response </br>
-http://<ec2-ip>/api/v1/employees
+http://ec2-ip/api/v1/employees
   
 
 
