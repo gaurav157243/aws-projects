@@ -11,7 +11,7 @@ By default, the http server runs on port 80. To change the port, use the followi
 
 * vi /etc/httpd/conf/httpd.conf
 * search for line that starts with "Listen" 
-* change the port from 80 to something like 8080, save the file
+* change the port from 80 to something like 8080, save the file by pressing [Esc] key and then  ":wq"
 * restart the http server using command - systemctl restart httpd 
 
 Now connect to the http server from the browser using - http://<public ip address>:8080
