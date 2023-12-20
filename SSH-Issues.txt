@@ -2,6 +2,7 @@ If you are not able to ssh into the EC2 machine, then perform the following chec
 
 * check the security group of the EC2 instance and verify that port 22 is enabled.
 * check if the EC2 instance has a public ip address assigned.
-* check if the VPC has an internet gateway attached to it. If not, 
-  then delete the VPC (which will delete all the resources) and create a new default VPC. You can create a default VPC by going to the VPC service, then Your VPCs, "Actions" dropdown, then select "Create Default VPC". This will create a default VPC will all the right configuration
-Then create a new EC2 instance using the new VPC and hopefully you should be able to connect.
+* check if the EC2 instance is in a subnet which is a public subnet. If you are not sure, then better is to delete the VPC and create a new default VPC (steps below).
+* check if the VPC has an internet gateway attached to it. If not, then delete the VPC (which will delete all the resources) and create a new default VPC. 
+* You can create a default VPC by going to the VPC service, then "Your VPCs" -> "Actions" dropdown, then select "Create Default VPC". This will create a default VPC will all the right configuration.
+* Then create a new EC2 instance using the new VPC and hopefully you should be able to connect.
